@@ -44,7 +44,13 @@
             
             columns: [
     {title: "Title", field: "Title", width: 250, headerFilter: "input", formatter: "textarea"},
+                
     {title: "System", field: "Game System", width: 150, headerFilter: "input"},
+
+    {title: "Category", field: "Event Type", width: 150, 
+        headerFilter: "list", 
+        headerFilterParams: {valuesLookup: true, clearable: true}
+    },            
     
     {title: "Day", field: "Day", width: 120, 
         headerFilter: "list", 
@@ -52,12 +58,6 @@
     },
 
     {title: "Start Time", field: "Start Date & Time", width: 180},
-    
-    {title: "Category", field: "Event Type", width: 150, 
-        headerFilter: "list", 
-        headerFilterParams: {valuesLookup: true, clearable: true}
-    },
-    
     {title: "Cost", field: "Cost $", width: 80, hozAlign: "center"},
     {title: "Remaining", field: "Tickets Available", width: 100, hozAlign: "center"},
 ],
