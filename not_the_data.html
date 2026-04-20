@@ -43,24 +43,24 @@
             placeholder: "Loading event data...",
             
             columns: [
-                {title: "Title", field: "Title", width: 300, headerFilter: "input", formatter: "textarea"},
-                
-                {title: "Category", field: "Event Type", width: 150, 
-                    headerFilter: "list", 
-                    headerFilterParams: {valuesLookup: true, clearable: true}
-                },
-                
-                {title: "Organizer", field: "Group", width: 200, headerFilter: "input"},
-                
-                {title: "Start Time", field: "Start Date & Time", width: 180, 
-                    headerFilter: "list", 
-                    headerFilterParams: {valuesLookup: true, clearable: true}
-                },
-                
-                {title: "Cost", field: "Cost $", width: 80, hozAlign: "center"},
-                {title: "Remaining", field: "Tickets Available", width: 100, hozAlign: "center"},
-                {title: "Location", field: "Location", width: 150}
-            ],
+    {title: "Title", field: "Title", width: 250, headerFilter: "input", formatter: "textarea"},
+    {title: "System", field: "Game System", width: 150, headerFilter: "input"},
+    
+    {title: "Day", field: "Day", width: 120, 
+        headerFilter: "list", 
+        headerFilterParams: {valuesLookup: true, clearable: true}
+    },
+
+    {title: "Start Time", field: "Start Date & Time", width: 180},
+    
+    {title: "Category", field: "Event Type", width: 150, 
+        headerFilter: "list", 
+        headerFilterParams: {valuesLookup: true, clearable: true}
+    },
+    
+    {title: "Cost", field: "Cost $", width: 80, hozAlign: "center"},
+    {title: "Remaining", field: "Tickets Available", width: 100, hozAlign: "center"},
+],
         });
 
         table.on("dataLoadError", function(error){
