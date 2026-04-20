@@ -1,0 +1,23 @@
+var table = new Tabulator("#event-table", {
+    ajaxURL: "events.json",
+    layout: "fitColumns",
+    pagination: "local",
+    paginationSize: 20,
+    progressiveRender: true,
+    headerFilterPlaceholder: "Filter...",
+    columns: [
+        {title: "Title", field: "Title", width: 250},
+        
+        // 1. Category Filter (Dropdown)
+        {title: "Category", field: "Event Type", headerFilter: "list", headerFilterParams: {valuesLookup: true, clearable: true}},
+        
+        // 2. Date Filter (Dropdown - extracts unique dates)
+        {title: "Start Time", field: "Start Date & Time", headerFilter: "list", headerFilterParams: {valuesLookup: true, clearable: true}},
+        
+        // 3. Organizer Filter (Text Search)
+        {title: "Organizer", field: "Group", headerFilter: "input"},
+        
+        {title: "Location", field: "Location"},
+        {title: "Available", field: "Tickets Available", width: 100},
+    ],
+});
