@@ -37,6 +37,12 @@
     <div style="margin-bottom: 10px; font-size: 1.2em;">
         Total Events: <span id="event-count">0</span>
     </div>
+    <details style="margin-bottom: 20px; background: #2a2a2a; padding: 10px; border-radius: 5px;">
+        <summary>View Recent Updates (Change Log)</summary>
+        <ul id="changelog-list" style="list-style: none; padding-left: 10px; margin-top: 10px;">
+            <li>Loading history...</li>
+        </ul>
+    </details>
     <div id="event-table"></div>
 
     <script type="text/javascript">
@@ -77,6 +83,25 @@
 
         table.on("dataFiltered", function(filters, rows){
             document.getElementById("event-count").innerText = rows.length;
+        });
+
+        fetch('changelog.json')
+        .then(response => response.json())
+        .then(data => {
+            const list = document.getElementById('changelog-list');
+            list.innerHTML = '';
+            if (data.length === 0) {
+                list.innerHTML = '<li>No changes recorded yet.</li>';
+            } else {
+                data.forEach(entry => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${entry.timestamp}</strong>: +${entry.added} new events, -${entry.removed} removed.`;
+                    list.appendChild(li);
+                });
+            }
+        })
+        .catch(() => {
+            document.getElementById('changelog-list').innerHTML = '<li>No history available.</li>';
         });
     </script>
 </body>
