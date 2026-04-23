@@ -70,6 +70,14 @@
             console.error("Data Load Error:", error);
             alert("Could not load events.json. Make sure the GitHub Action has run successfully at least once.");
         });
+
+        table.on("dataLoaded", function(data){
+            document.getElementById("event-count").innerText = data.length;
+        });
+
+        table.on("dataFiltered", function(filters, rows){
+            document.getElementById("event-count").innerText = rows.length;
+        });
     </script>
 </body>
 </html>
