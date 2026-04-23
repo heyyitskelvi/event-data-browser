@@ -26,6 +26,6 @@ jobs:
         run: |
           git config --global user.name "EventBot"
           git config --global user.email "bot@github.com"
-          git add events.json
+          git add *.json  # This picks up both events.json and changelog.json
           git commit -m "Automated Event Update" || exit 0
           git push
